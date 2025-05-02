@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OAuth Token Capture</title>
+</head>
+<body>
+  <h2>Waiting for token...</h2>
+  <p id="token">Loading...</p>
+
+  <script>
+    const hash = window.location.hash;
+    const tokenMatch = hash.match(/access_token=([^&]+)/);
+
+    if (tokenMatch) {
+      document.getElementById('token').innerText = `Token: ${tokenMatch[1]}`;
+    } else {
+      document.getElementById('token').innerText = "No token found.";
+    }
+  </script>
+</body>
+</html>
